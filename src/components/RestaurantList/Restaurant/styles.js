@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
         width: '100%',
         height: 200,
         borderRadius: 20,
+        marginTop: 10
     },
     nameRestaurant: {
         color: colors.white,
@@ -26,5 +27,6 @@ export const styles = StyleSheet.create({
         height: 200,
         position: 'absolute',
         borderRadius: 20,
+        marginTop: 10
     },
 })

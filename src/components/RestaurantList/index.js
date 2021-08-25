@@ -1,43 +1,26 @@
-import React, { useState } from 'react'
-import { View, Text, FlatList, ActivityIndicator } from 'react-native'
-import colors from '../../utils/colors'
+import React, { useState, useEffect } from 'react'
+import { View, FlatList, Alert } from 'react-native'
 import Restaurant from './Restaurant'
 import EmptyList from '../EmptyList'
+import client from '../../services/contentful'
 
 export default function RestaurantList () {
     const [loader, setLoader] = useState(false)
-    const data = [
-        {
-            id: '1',
-            image: 'https://images.unsplash.com/photo-1619926096619-5956ab4dfb1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=634&q=80',
-            name: 'El verdugo'
-        },
-        {
-            id: '2',
-            image: 'https://images.unsplash.com/photo-1596956470007-2bf6095e7e16?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=669&q=80',
-            name: 'Salvo Patria'
-        },
-        {
-            id: '3',
-            image: 'https://images.unsplash.com/photo-1572802419224-296b0aeee0d9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1003&q=80',
-            name: 'El verdugo'
-        },
-        {
-            id: '4',
-            image: 'https://images.unsplash.com/photo-1599974579688-8dbdd335c77f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1071&q=80',
-            name: 'Salvo Patria'
-        },
-        {
-            id: '3',
-            image: 'https://images.unsplash.com/photo-1611143669185-af224c5e3252?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1190&q=80',
-            name: 'El verdugo'
-        },
-        {
-            id: '4',
-            image: 'https://images.unsplash.com/photo-1596956470007-2bf6095e7e16?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=669&q=80',
-            name: 'Salvo Patria'
-        },
-    ]
+    const [restaurants, setRestaurants] = useState([])
+    const getRestaurant = async () => {
+        setLoader(true)
+        try {
+            const res = await client.getEntries({ 'content_type': 'restaurant' })
+            setRestaurants(res.items)
+            setLoader(false)
+        } catch (error) {
+            Alert.alert("Hubo un error")
+            setLoader(false)
+        }
+    }
+    useEffect(() => {
+        getRestaurant()
+    }, [])
     return (
         <View>
             <FlatList
@@ -48,7 +31,7 @@ export default function RestaurantList () {
                 showsVerticalScrollIndicator={false}
                 horizontal={false}
                 numColumns={2}
-                data={data}
+                data={restaurants}
                 renderItem={({ item }) => (
                     <Restaurant restaurant={item} />
                 )}
