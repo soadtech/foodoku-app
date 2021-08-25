@@ -1,13 +1,16 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
 import Logo from '../Logo'
 import { styles } from './styles'
+import * as Icons from '../../components/icons'
 
 export default function Header () {
     return (
         <View style={styles.container}>
             <Logo />
-            <Text>Cart</Text>
+            <TouchableOpacity>
+                <Icons.SvgCart />
+            </TouchableOpacity>
         </View>
     )
 }
