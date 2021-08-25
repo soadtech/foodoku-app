@@ -4,10 +4,15 @@ import colors from '../../../utils/colors'
 import * as Icons from '../../icons'
 import { styles } from './styles'
 
-export default function FilterItem ({ handler, filter }) {
+const TODOS_FILTER_SELECTED = '1'
+const MARGIN = 10
+const NO_MARGIN = 10
 
+export default function FilterItem ({ handler, filter }) {
+    const marginLeft = filter.id == TODOS_FILTER_SELECTED ? NO_MARGIN : MARGIN
+    const backgroundColor = filter.selected ? colors.black : colors.gray
     return (
-        <TouchableOpacity onPress={() => handler(filter.id)} style={[styles.filter, { marginLeft: filter.id == '1' ? 0 : 10, backgroundColor: filter.selected ? colors.black : colors.gray }]}>
+        <TouchableOpacity onPress={() => handler(filter.id)} style={[styles.filter, { marginLeft, backgroundColor }]}>
             <Text style={{ color: filter.selected ? colors.white : colors.black }}>{filter.name}</Text>
             {filter.selected && (
                 <View style={styles.mark}>
