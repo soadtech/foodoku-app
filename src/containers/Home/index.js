@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, StatusBar } from 'react-native'
+import FilterMenuList from '../../components/FilterMenuList'
 import Header from '../../components/Header'
 import SearchBox from '../../components/SearchBox'
 import colors from '../../utils/colors'
@@ -11,6 +12,7 @@ export default function Home () {
             <StatusBar backgroundColor={colors.white} barStyle='dark-content' />
             <Header />
             <SearchBox />
+            <FilterMenuList />
         </View>
     )
 }
