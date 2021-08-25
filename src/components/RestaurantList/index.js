@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { View, FlatList, Alert } from 'react-native'
 import Restaurant from './Restaurant'
 import EmptyList from '../EmptyList'
 import client from '../../services/contentful'
+import { AppContext } from '../../context/AppContext'
 
 export default function RestaurantList () {
     const [loader, setLoader] = useState(false)
-    const [restaurants, setRestaurants] = useState([])
+    const { restaurants, setRestaurants } = useContext(AppContext);
     const getRestaurant = async () => {
         setLoader(true)
         try {
