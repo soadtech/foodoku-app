@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text, Image } from 'react-native'
+import LinearGradient from 'react-native-linear-gradient';
 import { styles } from './styles'
 
 const CANT_RESTAURANT_FIRST_ROW = 2
@@ -11,6 +12,9 @@ export default function Restaurant ({ restaurant }) {
         <View style={{ width: '46%', marginTop, marginHorizontal: '2%', position: 'relative' }}>
             <Image style={styles.image} resizeMode='cover' source={{ uri: restaurant.image }} />
             <Text style={styles.nameRestaurant}>{restaurant.name}</Text>
+            <LinearGradient colors={['rgba(255,255,255,0.1)', 'rgba(255,255,255,0.1)', 'rgba(0,0,0,1)']} style={styles.linearGradient}>
+            </LinearGradient>
+
         </View>
     )
 }

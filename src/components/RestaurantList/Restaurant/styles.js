@@ -16,6 +16,15 @@ export const styles = StyleSheet.create({
         color: colors.white,
         position: 'absolute',
         bottom: 14,
-        left: 14
-    }
+        left: 14,
+        zIndex: 10,
+        fontWeight: 'bold'
+    },
+    linearGradient: {
+        flex: 1,
+        width: '100%',
+        height: 200,
+        position: 'absolute',
+        borderRadius: 20,
+    },
 })
