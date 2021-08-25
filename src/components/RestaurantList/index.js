@@ -7,13 +7,14 @@ import { AppContext } from '../../context/AppContext'
 
 export default function RestaurantList () {
     const [loader, setLoader] = useState(false)
-    const { restaurants, setRestaurants } = useContext(AppContext);
+    const { restaurants, setRestaurants, setRestaurantInitial } = useContext(AppContext);
     const getRestaurant = async () => {
         setLoader(true)
         try {
             const res = await client.getEntries({ 'content_type': 'restaurant' })
             setRestaurants(res.items)
             setLoader(false)
+            setRestaurantInitial(res.items)
         } catch (error) {
             Alert.alert("Hubo un error")
             setLoader(false)
