@@ -3,7 +3,7 @@ import colors from "../../utils/colors";
 
 export const styles = StyleSheet.create({
     container: {
-        borderBottomWidth: 2,
+        borderBottomWidth: 1,
         borderBottomColor: colors.black
     }
 })
