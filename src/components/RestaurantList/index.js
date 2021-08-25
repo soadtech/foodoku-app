@@ -27,8 +27,7 @@ export default function RestaurantList () {
         <View>
             <FlatList
                 contentContainerStyle={{
-                    paddingVertical: 18,
-                    alignItems: 'center'
+                    paddingVertical: 18
                 }}
                 showsVerticalScrollIndicator={false}
                 horizontal={false}
