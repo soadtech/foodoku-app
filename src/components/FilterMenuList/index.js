@@ -1,10 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { View, Text, ScrollView } from 'react-native'
 import { styles } from './styles'
 import FilterItem from './FilterItem'
+import { AppContext } from '../../context/AppContext'
 
-
+const ALL_FILTER_ID = '1'
 export default function FilterMenuList () {
+    const { setFilter } = useContext(AppContext);
     const [filters, setFilters] = useState([
         {
             id: '1',
@@ -37,7 +39,14 @@ export default function FilterMenuList () {
             selected: false
         },
     ])
-    const handlerChangueFilter = (filderId) => {
+
+    const isAllFilterPressed = (filter) => {
+        if (filter.id == ALL_FILTER_ID) return setFilter({})
+
+        setFilter({ isFilter: true, filterName: filter.name })
+    }
+    const handlerChangueFilter = (filderId, filt) => {
+        isAllFilterPressed(filt)
         const newFilters = filters.map((filter, index) => {
             if (filderId !== filter.id) return { ...filter, selected: false };
             return {
