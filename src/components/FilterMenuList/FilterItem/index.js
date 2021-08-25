@@ -1,11 +1,13 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, TouchableOpacity } from 'react-native'
+import colors from '../../../utils/colors'
 import { styles } from './styles'
 
-export default function FilterItem ({ item }) {
+export default function FilterItem ({ handler, filter }) {
+
     return (
-        <View style={[styles.item, { marginLeft: item.id == '1' ? 0 : 10 }]}>
-            <Text>{item.name}</Text>
-        </View>
+        <TouchableOpacity onPress={() => handler(filter.id)} style={[styles.filter, { marginLeft: filter.id == '1' ? 0 : 10, backgroundColor: filter.selected ? colors.black : colors.gray }]}>
+            <Text style={{ color: filter.selected ? colors.white : colors.black }}>{filter.name}</Text>
+        </TouchableOpacity>
     )
 }

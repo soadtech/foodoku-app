@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="15px" viewBox="0 0 15 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>mark@1,5x</title>
+    <g id="App" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="App-01" transform="translate(-88.000000, -199.000000)">
+            <g id="mark" transform="translate(88.000000, 199.000000)">
+                <circle id="Oval" fill="#3CA635" cx="7.5" cy="7.5" r="7.5"></circle>
+                <g id="checkmark" transform="translate(3.000000, 4.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                    <polygon id="Path" points="8.4375 0 3.75 4.6875 1.5625 2.5 0 4.0625 3.75 7.8125 10 1.5625"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
