@@ -8,7 +8,7 @@ export default function Header () {
     return (
         <View style={styles.container}>
             <Logo />
-            <TouchableOpacity>
+            <TouchableOpacity style={styles.btnCart}>
                 <Icons.SvgCart />
             </TouchableOpacity>
         </View>

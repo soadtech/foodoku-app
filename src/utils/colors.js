@@ -1,3 +1,4 @@
 export default {
-    white: 'white'
+    white: 'white',
+    black: 'black'
 }
